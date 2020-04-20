@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <i class="material-icons">wb_sunny</i>&nbsp;Search Weather by Location!</a>
+    </nav>
+
+    <!-- Weather Select Box -->
+  <form id="weather-form">
+
+    <!-- Label for Text Box -->
+    <label for="city-input">Choose the City</label>
+
+    <!-- Text Input Box -->
+    <input type="text" id="city-input"><br>
+
+    <!-- Submit Button -->
+    <input id="select-city" type="submit" value="Submit">
+  </form>
+
+  <!-- city Information -->
+  <div id="city-div"></div>
+
+   <!-- jQuery JS -->
+   <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+   <!-- Code to the JavaScript File -->
+   <script src="script.js"></script>
+ 
+    
+</body>
+
+</html>
