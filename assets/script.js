@@ -33,11 +33,13 @@ $(document).on("click", ".theWeather", function(event){
     getForcast();
 });
 
+//following function is grabing the weather info from openweather
 function getWeather(){
     document.getElementById("main-card").className = "card visible";
     document.getElementById("theForcast").className = "mt-4 visible";
+    var key = "b6abfbc0defc42a4c3f19f39c6849e83";
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/weather?q="+ searchCity + "&appid=b6abfbc0defc42a4c3f19f39c6849e83",
+        url: "https://api.openweathermap.org/data/2.5/weather?q="+ searchCity + "&appid=" + key,
         method: "GET"
     }).then(function (response){
         var temp = Number(response.main.temp);
@@ -47,12 +49,12 @@ function getWeather(){
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         var icon = response.weather[0].icon;
-        var iconURL = "https://openweathermaporg/img/w/" + icon + ".png";
+        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
         var cityName = response.name;
-        var cityHeading = cityName + " " + currentDay;
+        var cityHeading = cityName + " " + today;
 
-        $ajax({
-            url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=b6abfbc0defc42a4c3f19f39c6849e83",
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=" + key,
             method: "GET"
         }).then(function (response){
             uvIndex = response.current.uvi;
@@ -61,25 +63,28 @@ function getWeather(){
             $("#current-weather").append(`<p>Temperature: ${tempFahren}&deg;F</p>`);
             $("#current-weather").append(`<p>Humidity: ${humidity}%</p>`);
             $("#current-weather").append(`<p>Wind Speed: ${windSpeed}MPH</p>`);
-            $("#current-weather").append(`<p>UV Index: ${UVindex}</p>`);
+            $("#current-weather").append(`<p>UV Index: ${uvIndex}</p>`);
         });
 
     });
 }
 
+//following is getting forcast info from openweather
 function getForcast(){
 $(".card-deck").empty();
+var key = "b6abfbc0defc42a4c3f19f39c6849e83";
 $.ajax({
-    url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=b6abfbc0defc42a4c3f19f39c6849e83",
+    url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + key,
     method: "GET"
 }).then(function (response){
     var lat = response.coord.lat;
     var lon = response.coord.lon;
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=b6abfbc0defc42a4c3f19f39c6849e83",
+        url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=" + key,
         method: "GET"
     }).then(function (response){
         console.log(response);
+        //this is where we are getting the 5 days forcast
         for (let i=0; i<5; i++) {
             var icon = response.daily[i].weather[0].icon;
             var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
@@ -103,6 +108,8 @@ $.ajax({
     });
 });
 }
+
+//getting the previous city searches
 function getPreviousCities() {
     var storedSearches = JSON.parse(localStorage.getItem("previousCity"));
 
@@ -116,7 +123,7 @@ function renderSearchHistory() {
     $(".list-group").empty();
     for (let i = 0; i < previousCity.length; i++) {
 
-        $(".list-group").prepend(`<button type="button" class="list-group-item list-group-item-action saved-stuff-to-show">${previousCity[i]}</button)`);
+        $(".list-group").prepend(`<button type="button" class="list-group-item list-group-item-action theWeather">${previousCity[i]}</button)`);
         console.log(i + " times run");
     }
 }
