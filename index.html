@@ -1,65 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-
-    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link href="Assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="assets/style.css" rel="stylesheet">
-
-    <title>Weather-Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">
-            <i class="material-icons">wb_sunny</i>&nbsp;What is the Weather!</a>
+    <nav class="navbar text-white bg-primary text-center">
+        <h3 style="margin: 0 auto;">Weather Dashboard</h3>
     </nav>
 
-    <div class="container-fluid">
-        <div class="row mt-3">
-            <div class="col-md-3 searcharea">
-                <h2 class="text-secondary">Search for a city:</h2>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="searchinput" type="search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" id="searchbtn" type="submit">
-                            <i class="material-icons">search</i>
-                        </button>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-3">
+                <form>
+                    <div class="form-group">
+                        <label for="CitySearch">Search for a city's weather: </label>
+                        <input class="form-control" id="searchCity">
+                    </div>
+                    <button class="btn btn-primary search">Search</button>
+                </form>
+                <div class="list-group mt-4">
+                    
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="card invisible" id="main-card">
+                    <div class="card-body">
+                        <h2 id="current-city"></h2>
+                        <div id="current-weather">
+                        </div>
                     </div>
                 </div>
-                <div class="mt-5" id="prevSearches">
-                    <!--Buttons for previous searches here-->
+
+                
+                <h5 class="mt-4 invisible" id="theForcast">5 day forecast: </h5>
+                <div class="card-deck mt-4">
+
+                   
                 </div>
             </div>
 
-            <div class="col-md-9">
-                <div class="container" id="earthforecast">
-                    <!--Weather for current location-->
-                </div>
-            </div>
         </div>
-
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="assets/script.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Assets/script.js"></script>
 </body>
 
 </html>
