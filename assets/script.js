@@ -49,7 +49,7 @@ function getWeather(){
         var icon = response.weather[0].icon;
         var iconURL = "https://openweathermaporg/img/w/" + icon + ".png";
         var cityName = response.name;
-        var cityHeading = cityName + "(" + currentDay + ")";
+        var cityHeading = cityName + " " + currentDay;
 
         $ajax({
             url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=b6abfbc0defc42a4c3f19f39c6849e83",
