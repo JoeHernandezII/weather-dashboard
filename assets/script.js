@@ -85,7 +85,7 @@ $.ajax({
     }).then(function (response){
         console.log(response);
         //this is where we are getting the 5 days forcast
-        for (let i=0; i<5; i++) {
+        for (let i=0; i<5; i++){
             var icon = response.daily[i].weather[0].icon;
             var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
             var temp = Number(response.daily[i].temp.day);
@@ -109,20 +109,18 @@ $.ajax({
 });
 }
 
-//getting the previous city searches
-function getPreviousCities() {
+//getting the previous cities that were searched
+function getPreviousCities(){
     var storedSearches = JSON.parse(localStorage.getItem("previousCity"));
-
-    if (storedSearches !== null) {
+    if (storedSearches !== null){
         previousCity = storedSearches;
         renderSearchHistory();
     }
 }
 
-function renderSearchHistory() {
+function renderSearchHistory(){
     $(".list-group").empty();
-    for (let i = 0; i < previousCity.length; i++) {
-
+    for (let i = 0; i < previousCity.length; i++){
         $(".list-group").prepend(`<button type="button" class="list-group-item list-group-item-action theWeather">${previousCity[i]}</button)`);
         console.log(i + " times run");
     }
