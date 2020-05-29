@@ -43,8 +43,7 @@ $(document).on("click", ".saved-stuff-to-show", function (event) {
 function searchWeather() {
     document.getElementById("main-card").className = "card visible";
     document.getElementById("forecast-title").className = "mt-4 visible";
-    var key = "2f0304670db5a051b1ff7626ea77bb95
-    ";
+    var key = "2f0304670db5a051b1ff7626ea77bb95";
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
         method: "GET"
@@ -77,8 +76,7 @@ function searchWeather() {
 
 function generateForecast() {
     $(".card-deck").empty();
-    var key = "2f0304670db5a051b1ff7626ea77bb95
-    ";
+    var key = "2f0304670db5a051b1ff7626ea77bb95";
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
         method: "GET"
