@@ -45,7 +45,7 @@ function searchWeather() {
     document.getElementById("forecast-title").className = "mt-4 visible";
     var key = "2f0304670db5a051b1ff7626ea77bb95";
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
         method: "GET"
     }).then(function (response) {
         var temp = Number(response.main.temp);
@@ -55,12 +55,12 @@ function searchWeather() {
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         var icon = response.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
         var cityName = response.name;
         var currentWeatherHeader = cityName + "(" + currentDay + ")";
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=" + key,
+            url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=" + key,
             method: "GET"
         }).then(function (response) {
             UVindex = response.current.uvi;
@@ -78,19 +78,19 @@ function generateForecast() {
     $(".card-deck").empty();
     var key = "2f0304670db5a051b1ff7626ea77bb95";
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
         method: "GET"
     }).then(function (response) {
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=" + key,
+            url: "https://api.openweathermap.org/data/2.5/onecall?lat=42.46&lon=-71.06&appid=" + key,
             method: "GET"
         }).then(function (response) {
             console.log(response);
             for (let i = 0; i < 5; i++) {
                 var icon = response.daily[i].weather[0].icon;
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 var temp = Number(response.daily[i].temp.day);
                 var fTemp = parseInt(1.8 * (temp - 273) + 32);
                 var humidity = response.daily[i].humidity;
