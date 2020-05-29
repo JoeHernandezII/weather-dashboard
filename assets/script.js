@@ -89,7 +89,7 @@ $.ajax({
             var temp = Number(response.daily[i].temp.day);
             var tempFahren = parseInt(1.8 * (temp-273) +32);
             var humidity = response.daily[i].humidity;
-            var day = moment().add((i+1), "days").format("MM/DD/YYYY");
+            var day = moment().add((i+1), "days").format(("MM/DD/YYYY"));
             console.log(day);
             console.log("icon: " + icon);
             console.log("F: " + tempFahren);
