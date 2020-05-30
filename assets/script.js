@@ -20,7 +20,8 @@ $(".search").click(function (event) {
         //clear divs before generating new weather 
         $("#current-city-name").empty();
         $("#current-weather-card").empty();
-        //call functions to search weather and add newly stored search to search history list
+       
+        
         searchWeather();
         getSearchHistory();
         generateForecast();
@@ -28,14 +29,13 @@ $(".search").click(function (event) {
 });
 
 $(document).on("click", ".saved-stuff-to-show", function (event) {
-    // grab text Input and assign to cityToSearch
     event.preventDefault();
     cityToSearch = $(this).text();
     console.log(cityToSearch);
-    //clears previous weather information
     $("#current-city-name").empty()
     $("#current-weather-card").empty()
-    //call function to search weather
+    
+
     searchWeather();
     generateForecast();
 });
